@@ -15,7 +15,7 @@ source:
     - fix-win-exe-extension.patch
 
 build:
-  number: 2
+  number: 3
   script:
     # conda-forge's MSVC activation sets CMAKE_GENERATOR_PLATFORM=x64 and
     # CMAKE_GENERATOR_TOOLSET=v143 for the Visual Studio generator. These are
