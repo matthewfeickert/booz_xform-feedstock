@@ -43,7 +43,7 @@ requirements:
     - setuptools >=77
     - pybind11 >=2.12.0
     - pip
-    - eigen
+    - eigen-abi-devel
     - libnetcdf
     # c.f. https://conda-forge.org/docs/maintainer/knowledge_base/#openmp
     - if: linux
