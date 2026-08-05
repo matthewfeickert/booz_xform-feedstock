@@ -1,16 +1,26 @@
+From 1bff302e5b08c5d020062e89da132d1cfe23440b Mon Sep 17 00:00:00 2001
+From: Matthew Feickert <matthew.feickert@cern.ch>
+Date: Wed, 5 Aug 2026 15:00:08 -0600
+Subject: [PATCH] fix: Patch MSVC CMake compatability
+
+---
+ CMakeLists.txt | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 92231ae..ecac36f 100644
+index a983ec2..1f4b005 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -5,12 +5,15 @@ cmake_minimum_required(VERSION 3.12)
+@@ -1,7 +1,7 @@
+ # Versions >= 3.9 have improved support for MPI: https://cliutils.gitlab.io/modern-cmake/chapters/packages/MPI.html
+ # 3.18 is required because pybind11 >= 3's CMake package config needs >= 3.15,
+ # and because CMake 4 warns about compatibility requests below 3.10.
+-cmake_minimum_required(VERSION 3.18)
++cmake_minimum_required(VERSION 3.18...4.4)
+ 
  set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
  
- # Comment out the next line when speed is needed
--set(CMAKE_BUILD_TYPE Debug)
--add_definitions(-O2)
-+if(NOT CMAKE_BUILD_TYPE)
-+  set(CMAKE_BUILD_TYPE Debug)
-+endif()
+@@ -15,7 +15,9 @@ endif()
  
  # This next compile flag is needed to avoid a compile error on some systems. See
  # https://pybind11.readthedocs.io/en/stable/faq.html#recursive-template-instantiation-exceeded-maximum-depth-of-256
@@ -21,3 +31,6 @@ index 92231ae..ecac36f 100644
  
  #set(CMAKE_MODULE_PATH cmake)
  include(cmake/knownHosts.cmake)
+-- 
+2.55.0
+

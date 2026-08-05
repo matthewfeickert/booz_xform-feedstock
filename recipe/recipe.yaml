@@ -12,7 +12,6 @@ source:
   sha256: 2b2d8ede0ff65260168108921aa08245969883ac6a0d5ab23e04815d97e045ce
   patches:
     - fix-msvc-compat.patch
-    - fix-win-exe-extension.patch
 
 build:
   number: 0
@@ -41,8 +40,8 @@ requirements:
     - ninja
   host:
     - python
-    - setuptools >=42
-    - pybind11 >=2.6.0,<3.0.0
+    - setuptools >=77
+    - pybind11 >=2.12.0
     - pip
     - eigen
     - libnetcdf
