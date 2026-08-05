@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.0.9"
+  version: "0.1.0"
 
 package:
   name: "booz_xform"
@@ -9,13 +9,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/b/booz_xform/booz_xform-${{ version }}.tar.gz
-  sha256: d650c5fcbd668cbccea50fbfd6e5c507225eb07218acd4991875804aaeb574d7
+  sha256: 2b2d8ede0ff65260168108921aa08245969883ac6a0d5ab23e04815d97e045ce
   patches:
     - fix-msvc-compat.patch
-    - fix-win-exe-extension.patch
 
 build:
-  number: 4
+  number: 0
   script:
     # conda-forge's MSVC activation sets CMAKE_GENERATOR_PLATFORM=x64 and
     # CMAKE_GENERATOR_TOOLSET=v143 for the Visual Studio generator. These are
@@ -41,10 +40,10 @@ requirements:
     - ninja
   host:
     - python
-    - setuptools >=42
-    - pybind11 >=2.6.0,<3.0.0
+    - setuptools >=77
+    - pybind11 >=2.12.0
     - pip
-    - eigen
+    - eigen-abi-devel
     - libnetcdf
     # c.f. https://conda-forge.org/docs/maintainer/knowledge_base/#openmp
     - if: linux
